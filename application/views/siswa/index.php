@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="row justify-content-center" style="min-height: 670px;">
+<div class="container content-efiler">
+    <div class="row justify-content-center">
         <div class="col-xl-12 col-md-12 col-sm-12 pt-5" style="padding-bottom: 120px">
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item">

@@ -1,40 +1,49 @@
 body {
-    min-height: 800px;
-    background-size: 1600px 1200px;
-    background-repeat: no-repeat;
-    background-image: url("/assets/img/bg.jpg");
+	min-height: 800px;
+	background-size: 1600px 1200px;
+	background-repeat: no-repeat;
+	background-image: url("../img/bg.jpg");
 }
 
 .captcha {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 1.3em;
-    padding: 3px;
-    border-radius: 5px;
-    text-decoration: line-through;
-    color: #a0a0a0;
-    background-color: #0c0c0c;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.3em;
+	padding: 3px;
+	border-radius: 5px;
+	text-decoration: line-through;
+	color: #b30000;
+	background: rgb(222, 222, 222);
+	background: linear-gradient(
+		0deg,
+		rgba(222, 222, 222, 1) 0%,
+		rgba(255, 255, 255, 1) 100%
+	);
 }
 
 #submit {
-    border-radius: 40px;
-    width: 80%;
+	border-radius: 40px;
+	width: 80%;
 }
 
 .nav-pills .nav-link {
-    border-radius: 10px 40px 0 0 !important;
-    color: #fff;
-    background-color: #212C5F;
-    padding: 6px 40px 6px 20px;
-    font-size: 19px;
+	border-radius: 10px 40px 0 0 !important;
+	color: #fff;
+	background-color: #212c5f;
+	padding: 6px 40px 6px 20px;
+	font-size: 19px;
 }
 
 .nav-item {
-    padding-right: 5px;
+	padding-right: 5px;
 }
 
 .nav-pills .nav-link.active {
-    color: #fff;
-    background-color: #212C5F !important;
+	color: #fff;
+	background-color: #212c5f !important;
+}
+
+.content-efiler {
+	min-height: 670px;
 }
