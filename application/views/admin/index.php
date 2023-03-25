@@ -142,12 +142,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="m_penghasilan_tidak_kena_pajak" class="col-sm-4 col-form-label">Penghasilan Tidak Kena Pajak</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="m_penghasilan_tidak_kena_pajak" value="Penghasilan Tidak Kena Pajak" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="m_penghasilan_terpotong" class="col-sm-4 col-form-label">Penghasilan Terpotong</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="m_penghasilan_terpotong" value="Penghasilan Terpotong" readonly>
@@ -301,7 +295,7 @@
             });
         });
 
-        
+
         //tab SPT
         let spt = <?= $spt ?>;
         console.log(spt);
