@@ -2,20 +2,20 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Siswa extends CI_Controller
+class Member extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
         is_logged_in();
-        if (!($this->session->userdata('user_data')[0]['level'] == 'siswa')) redirect('login/logout', 'refresh');
+        if (!($this->session->userdata('user_data')[0]['level'] == 'member')) redirect('login/logout', 'refresh');
     }
     public function index()
     {
         $data['user_data'] = $this->session->userdata('user_data');
         $this->load->view('template/header');
-        $this->load->view('siswa/index', $data);
+        $this->load->view('member/index', $data);
         $this->load->view('template/footer');
     }
     public function spt()
@@ -70,9 +70,25 @@ class Siswa extends CI_Controller
             }
             $data['spt'] = json_encode($data['spt']);
             $this->load->view('template/header');
-            $this->load->view('siswa/spt', $data);
+            $this->load->view('member/spt', $data);
             $this->load->view('template/footer');
         }
+    }
+    public function hapus_spt_ss1770s()
+    {
+        $id_spt = $this->input->post('id_spt');
+        $id_spt_lanjutan = $this->input->post('id_spt_lanjutan');
+        $delete1 = $this->db->delete('spt', ['id_spt' => $id_spt]);
+        $delete2 = $this->db->delete('spt_ss1770s', ['id_spt_ss1770s' => $id_spt_lanjutan]);
+        echo json_encode($delete1);
+    }
+    public function hapus_spt_ss1770ss()
+    {
+        $id_spt = $this->input->post('id_spt');
+        $id_spt_lanjutan = $this->input->post('id_spt_lanjutan');
+        $delete1 = $this->db->delete('spt', ['id_spt' => $id_spt]);
+        $delete2 = $this->db->delete('spt_ss1770ss', ['id_spt_ss1770ss' => $id_spt_lanjutan]);
+        echo json_encode($delete1);
     }
 }
 

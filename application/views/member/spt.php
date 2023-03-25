@@ -424,7 +424,132 @@
 </div>
 
 <script>
+    function hitungPajakSPT1770S() {
+        // Ambil nilai input tahun pajak dan penghasilan bruto
+        const tahunPajak = parseInt(document.getElementById("tahunPajakSPT1770S").value);
+        const penghasilanBruto = parseInt(document.getElementById("penghasilanPajakSPT1770S").value);
+
+        // Ambil nilai tanggungan
+        const tanggungan = parseInt(document.getElementById("tanggunganSPT1770S").value);
+
+        // Hitung penghasilan netto
+        const penghasilanNetto = penghasilanBruto - tanggungan;
+
+        // Hitung PTKP
+        let ptkp = 0;
+        if (tanggungan === 54000000) {
+            ptkp = 54000000;
+        } else if (tanggungan === 58500000) {
+            ptkp = 58500000;
+        } else if (tanggungan === 63000000) {
+            ptkp = 63000000;
+        } else if (tanggungan === 67500000) {
+            ptkp = 67500000;
+        } else if (tanggungan === 72000000) {
+            ptkp = 72000000;
+        } else if (tanggungan === 112500000) {
+            ptkp = 112500000;
+        } else if (tanggungan === 117000000) {
+            ptkp = 117000000;
+        } else if (tanggungan === 121500000) {
+            ptkp = 121500000;
+        } else {
+            ptkp = 126000000;
+        }
+
+        // Hitung PKP
+        const pkp = penghasilanNetto - ptkp;
+
+        // Hitung pajak
+        let pajak = 0;
+        if (pkp <= 0) {
+            pajak = 0;
+        } else if (pkp <= 50000000) {
+            pajak = pkp * 0.05;
+        } else if (pkp <= 250000000) {
+            pajak = 2500000 + (pkp - 50000000) * 0.15;
+        } else if (pkp <= 500000000) {
+            pajak = 32500000 + (pkp - 250000000) * 0.25;
+        } else if (pkp <= 1000000000) {
+            pajak = 95000000 + (pkp - 500000000) * 0.3;
+        } else {
+            pajak = 295000000 + (pkp - 1000000000) * 0.35;
+        }
+
+        // Tampilkan hasil pajak
+        if(!isNaN(pajak)){
+            $('#totalPajakSPT1770S').val(pajak.toString());
+        }
+    }
+    function hitungPajakSPT1770SS() {
+        // Ambil nilai input tahun pajak dan penghasilan bruto
+        const tahunPajak = parseInt(document.getElementById("tahunPajakSPT1770SS").value);
+        const penghasilanBruto = parseInt(document.getElementById("penghasilanPajakSPT1770SS").value);
+
+        // Ambil nilai tanggungan
+        const tanggungan = parseInt(document.getElementById("tanggunganSPT1770SS").value);
+
+        // Hitung penghasilan netto
+        const penghasilanNetto = penghasilanBruto - tanggungan;
+
+        // Hitung PTKP
+        let ptkp = 0;
+        if (tanggungan === 54000000) {
+            ptkp = 54000000;
+        } else if (tanggungan === 58500000) {
+            ptkp = 58500000;
+        } else if (tanggungan === 63000000) {
+            ptkp = 63000000;
+        } else if (tanggungan === 67500000) {
+            ptkp = 67500000;
+        } else if (tanggungan === 72000000) {
+            ptkp = 72000000;
+        } else if (tanggungan === 112500000) {
+            ptkp = 112500000;
+        } else if (tanggungan === 117000000) {
+            ptkp = 117000000;
+        } else if (tanggungan === 121500000) {
+            ptkp = 121500000;
+        } else {
+            ptkp = 126000000;
+        }
+
+        // Hitung PKP
+        const pkp = penghasilanNetto - ptkp;
+
+        // Hitung pajak
+        let pajak = 0;
+        if (pkp <= 0) {
+            pajak = 0;
+        } else if (pkp <= 50000000) {
+            pajak = pkp * 0.05;
+        } else if (pkp <= 250000000) {
+            pajak = 2500000 + (pkp - 50000000) * 0.15;
+        } else if (pkp <= 500000000) {
+            pajak = 32500000 + (pkp - 250000000) * 0.25;
+        } else if (pkp <= 1000000000) {
+            pajak = 95000000 + (pkp - 500000000) * 0.3;
+        } else {
+            pajak = 295000000 + (pkp - 1000000000) * 0.35;
+        }
+
+        // Tampilkan hasil pajak
+        if(!isNaN(pajak)){
+            $('#totalPajakSPT1770SS').val(pajak.toString());
+        }
+    }
+
     $(document).ready(function() {
+        $('a[data-toggle="pill"]').on('shown.bs.tab', function(e) {
+            var activeTab = $(e.target).attr('href');
+            sessionStorage.setItem('activeTab-member-spt', activeTab);
+        });
+
+        // kembalikan tab yang aktif dari session storage
+        var activeTab = sessionStorage.getItem('activeTab-member-spt');
+        if (activeTab) {
+            $('#pills-tab a[href="' + activeTab + '"]').tab('show');
+        }
         let formSpt = $('#formSpt')[0];
         let formDataSpt = new FormData(formSpt);
         let id_user = <?= $id_user ?>;
@@ -439,7 +564,7 @@
                     <td scope="row">${element.jenis_spt}</td>
                     <td>${element.tahun_pajak}</td>
                     <td data-detail="${JSON.stringify(element).replaceAll("\"", "'")}">
-                        <button class="btn btn-primary btn-sm lihat-daftar-spt" data-toggle="modal" data-target="#modalDaftarSPT" >Lihat</button> | 
+                        <button class="btn btn-primary btn-sm lihat-daftar-spt" data-toggle="modal" data-target="#modalDaftarSPT" >Lihat</button>
                         <button class="btn btn-danger btn-sm hapus-daftar-spt" data-toggle="modal" data-target="#modalHapusSPT" >Hapus</button>
                     </td>
                 </tr>
@@ -450,8 +575,58 @@
             data = JSON.parse(data.replaceAll("\'", '"'));
             // console.log(data);
             for (const key in data) {
-                $('#m_'+key).val(data[key]);
+                $('#m_' + key).val(data[key]);
             }
+        });
+        $('#table-daftar-spt').on('click', '.hapus-daftar-spt', function() {
+            let data = $(this).parent().data('detail');
+            data = JSON.parse(data.replaceAll("\'", '"'));
+            Swal.fire({
+                icon: 'question',
+                title: 'Apakah anda yakin akan menghapus data ini?',
+                showCancelButton: true,
+                confirmButtonText: 'Lanjutkan',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (data.jenis_spt == "SPT1770S") {
+                        $.ajax({
+                            type: "POST",
+                            url: "<?= base_url() ?>/admin/hapus_spt_ss1770s",
+                            data: {
+                                'id_spt': data.id_spt,
+                                'id_spt_lanjutan': data.id_spt_lanjutan,
+                            },
+                            dataType: "JSON",
+                            success: function(response) {
+                                console.log(response);
+                                if (response) {
+                                    Swal.fire('Info', 'data telah terhapus!', 'info').then(() => {
+                                        window.location.reload();
+                                    });
+                                }
+                            }
+                        });
+                    } else if (data.jenis_spt == "SPT1770SS") {
+                        $.ajax({
+                            type: "POST",
+                            url: "<?= base_url() ?>/admin/hapus_spt_ss1770ss",
+                            data: {
+                                'id_spt': data.id_spt,
+                                'id_spt_lanjutan': data.id_spt_lanjutan,
+                            },
+                            dataType: "JSON",
+                            success: function(response) {
+                                console.log(response);
+                                if (response) {
+                                    Swal.fire('Info', 'data telah terhapus!', 'info').then(() => {
+                                        window.location.reload();
+                                    });
+                                }
+                            }
+                        });
+                    }
+                }
+            });
         });
 
         // fungsi pada tab "Buat SPT"
@@ -507,6 +682,9 @@
             let minimalPenghasilan = $(this).val();
             $('#penghasilanTidakKenaPajakSPT1770S').val(minimalPenghasilan);
         });
+        $('#penghasilanPajakSPT1770S, #penghasilanTidakKenaPajakPajakSPT1770S, #penghasilanterpotongPajakSPT1770S').on('change', function () {
+            hitungPajakSPT1770S();
+        })
         $('#simpanSPT1770S').on('click', function() {
             let formSPT1770S = $('#formSPT1770S')[0];
             let formDataSPT1770S = new FormData(formSPT1770S);

@@ -84,7 +84,7 @@ CREATE TABLE `users` (
   `email` varchar(128) NOT NULL,
   `kelas` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
-  `level` enum('admin','siswa') NOT NULL DEFAULT 'siswa',
+  `level` enum('admin','member') NOT NULL DEFAULT 'member',
   `status` enum('0','1','2') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -93,7 +93,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `npwp`, `nik`, `nama`, `email`, `kelas`, `password`, `level`, `status`) VALUES
-(1, '123', '12345', 'sahril', '', 'Akuntansi-XI-A', '123', 'siswa', '0');
+(1, '123', '12345', 'sahril', '', 'Akuntansi-XI-A', '123', 'member', '0');
 
 --
 -- Indexes for dumped tables

@@ -53,7 +53,7 @@
                             if (level == 'admin') {
                                 window.location.href="<?= base_url('admin') ?>";
                             } else {
-                                window.location.href="<?= base_url('siswa') ?>";
+                                window.location.href="<?= base_url('member') ?>";
                             }
                         } else {
                             $('#errCaptcha').text(response.pesan);
