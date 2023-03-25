@@ -5,12 +5,12 @@
                 <div class="card-body">
                     <h2 class="card-title text-center">Login</h2>
                     <!-- <form id="form" method="post"> -->
-                        <div class="form-group">
-                            <input type="text" name="npwp" id="npwp" class="form-control" placeholder="Nomor Pokok Wajib Pajak (NPWP)" aria-describedby="helpnpwp">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="password" id="password" class="form-control" placeholder="Kata Sandi" aria-describedby="helpPassword">
-                        </div>
+                    <div class="form-group">
+                        <input type="text" name="npwp" id="npwp" class="form-control" placeholder="Nomor Pokok Wajib Pajak (NPWP)" aria-describedby="helpnpwp">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="password" id="password" class="form-control" placeholder="Kata Sandi" aria-describedby="helpPassword">
+                    </div>
                     <!-- </form> -->
                     <div class="form-group">
                         <div class="row">
@@ -30,26 +30,33 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         createCaptcha();
-        $('#submit').on('click', function () {
+        $('#submit').on('click', function() {
             validation = validateCaptcha();
             let npwp = $('#npwp').val();
             let password = $('#password').val();
-            if(validation){
+            if (validation) {
                 $.ajax({
                     type: "post",
                     url: "<?= base_url('login/login') ?>",
                     data: {
-                        npwp,password
+                        npwp,
+                        password
                     },
                     dataType: "JSON",
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
-                        if(response.status){
-                            window.location.href="<?= base_url('siswa') ?>";
-                        }else{
-                            $('#errCaptcha').text('NPWP / Password Salah');
+                        if (response.status) {
+                            let level = response.user_data[0].level;
+                            // console.log(level);
+                            if (level == 'admin') {
+                                window.location.href="<?= base_url('admin') ?>";
+                            } else {
+                                window.location.href="<?= base_url('siswa') ?>";
+                            }
+                        } else {
+                            $('#errCaptcha').text(response.pesan);
                         }
                     }
                 });

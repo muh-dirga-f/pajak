@@ -3,15 +3,13 @@
         <div class="col-xl-12 col-md-12 col-sm-12 pt-5" style="padding-bottom: 120px">
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="pills-arsip-tab" data-toggle="pill" href="#pills-arsip" role="tab"
-                        aria-controls="pills-arsip" aria-selected="true">Arsip SPT</a>
+                    <a class="nav-link active" id="pills-arsip-tab" data-toggle="pill" href="#pills-arsip" role="tab" aria-controls="pills-arsip" aria-selected="true">Arsip SPT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-buat-spt-tab" data-toggle="pill" href="#pills-buat-spt" role="tab"
-                        aria-controls="pills-buat-spt" aria-selected="false">Buat SPT</a>
+                    <a class="nav-link" id="pills-buat-spt-tab" data-toggle="pill" href="#pills-buat-spt" role="tab" aria-controls="pills-buat-spt" aria-selected="false">Buat SPT</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link d-none" id="pills-upload-spt-tab" data-toggle="pill" href="#pills-upload-spt" role="tab" aria-controls="pills-upload-spt" aria-selected="true">Upload SPT</a>
+                    <a class="nav-link d-none" id="pills-upload-spt-tab" data-toggle="pill" href="#pills-upload-spt" role="tab" aria-controls="pills-upload-spt" aria-selected="true">Upload SPT</a>
                 </li>
                 <a class="nav-link d-none" id="pills-upload-spt1770s-tab" data-toggle="pill" href="#pills-upload-spt1770s" role="tab" aria-controls="pills-upload-spt1770s" aria-selected="true">SPT 1770 S</a>
                 </li>
@@ -28,7 +26,7 @@
                                 </div>
                                 <div class="card-body" style="min-height: 150px;">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-inverse table-bordered table-light w-100">
+                                        <table id="table-daftar-spt" class="table table-striped table-inverse table-bordered table-light w-100">
                                             <thead class="thead-inverse text-white" style="background-color: #212C5F;">
                                                 <tr>
                                                     <th>Jenis SPT</th>
@@ -36,18 +34,7 @@
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td scope="row">SPT</td>
-                                                    <td>2022</td>
-                                                    <td>Edit | Hapus</td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="row">SPT 1770 S</td>
-                                                    <td>2023</td>
-                                                    <td>Edit | Hapus</td>
-                                                </tr>
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -86,9 +73,11 @@
                                                 </div>
                                                 <div class="row view2Spt1 pt-2" style="display:none;">
                                                     <div class="col">
-                                                        Anda dapat menggunakan fasilitas upload CSV dari e-SPT
-                                                        <br/>
-                                                        <button type="button" class="btn btn-warning uploadSPT">Upload SPT</button>
+                                                        <!-- Anda dapat menggunakan fasilitas upload CSV dari e-SPT
+                                                        <br />
+                                                        <button type="button" class="btn btn-warning uploadSPT">Upload SPT</button> -->
+
+                                                        <button type="button" class="btn btn-warning uploadSPT1770S">SPT 1770 S</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,7 +194,7 @@
                                         <div class="form-group row">
                                             <label for="penghasilanPajakSPT1770S" class="col-sm-8 col-form-label">2. Penghasilan Bruto Dalam dan Luar Negeri Sehubungan Dengan Pekerjaan Dan Penghasilan Neto Dalam Negeri</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilan" class="form-control" id="penghasilanPajakSPT1770S"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="penghasilan" class="form-control" id="penghasilanPajakSPT1770S" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -228,32 +217,32 @@
                                                 </select>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilanTidakKenaPajak" class="form-control" id="penghasilanTidakKenaPajakSPT1770S"  placeholder="Masukkan Nilai" value="0" readonly>
+                                                <input type="text" name="penghasilanTidakKenaPajak" class="form-control" id="penghasilanTidakKenaPajakSPT1770S" placeholder="Masukkan Nilai" value="0" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="penghasilanterpotongPajakSPT1770S" class="col-sm-8 col-form-label">4. Pajak Penghasilan Yang Telah Dipotong Pihak Lain</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilanTerpotong" class="form-control" id="penghasilanterpotongPajakSPT1770S"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="penghasilanTerpotong" class="form-control" id="penghasilanterpotongPajakSPT1770S" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="totalPajakSPT1770S" class="col-sm-8 col-form-label">5. Total Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalPajak" class="form-control" id="totalPajakSPT1770S"  placeholder="Masukkan Nilai" value="0" readonly>
+                                                <input type="text" name="totalPajak" class="form-control" id="totalPajakSPT1770S" placeholder="Masukkan Nilai" value="0" readonly>
                                             </div>
                                         </div>
                                         <h5 class="p-3 bg-warning rounded">B. Daftar Harta dan Kewajiban</h5>
                                         <div class="form-group row">
                                             <label for="hartaPajakSPT1770S" class="col-sm-8 col-form-label">6. Jumlah Keseluruhan Harta Yang Dimiliki Pada Akhir Tahun Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalHarta" class="form-control" id="hartaPajakSPT1770S"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="totalHarta" class="form-control" id="hartaPajakSPT1770S" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="utangPajakSPT1770S" class="col-sm-8 col-form-label">7. Jumlah Keseluruhan Kewajiban/Utang Pada Akhir Tahun Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalUtang" class="form-control" id="utangPajakSPT1770S"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="totalUtang" class="form-control" id="utangPajakSPT1770S" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <h5 class="p-3 bg-primary rounded">C. Pernyataan</h5>
@@ -290,7 +279,7 @@
                                         <div class="form-group row">
                                             <label for="penghasilanPajakSPT1770SS" class="col-sm-8 col-form-label">2. Penghasilan Bruto Dalam dan Luar Negeri Sehubungan Dengan Pekerjaan Dan Penghasilan Neto Dalam Negeri</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilan" class="form-control" id="penghasilanPajakSPT1770SS"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="penghasilan" class="form-control" id="penghasilanPajakSPT1770SS" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -313,32 +302,32 @@
                                                 </select>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilanTidakKenaPajak" class="form-control" id="penghasilanTidakKenaPajakSPT1770SS"  placeholder="Masukkan Nilai" value="0" readonly>
+                                                <input type="text" name="penghasilanTidakKenaPajak" class="form-control" id="penghasilanTidakKenaPajakSPT1770SS" placeholder="Masukkan Nilai" value="0" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="penghasilanterpotongPajakSPT1770SS" class="col-sm-8 col-form-label">4. Pajak Penghasilan Yang Telah Dipotong Pihak Lain</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="penghasilanTerpotong" class="form-control" id="penghasilanterpotongPajakSPT1770SS"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="penghasilanTerpotong" class="form-control" id="penghasilanterpotongPajakSPT1770SS" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="totalPajakSPT1770SS" class="col-sm-8 col-form-label">5. Total Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalPajak" class="form-control" id="totalPajakSPT1770SS"  placeholder="Masukkan Nilai" value="0" readonly>
+                                                <input type="text" name="totalPajak" class="form-control" id="totalPajakSPT1770SS" placeholder="Masukkan Nilai" value="0" readonly>
                                             </div>
                                         </div>
                                         <h5 class="p-3 bg-warning rounded">B. Daftar Harta dan Kewajiban</h5>
                                         <div class="form-group row">
                                             <label for="hartaPajakSPT1770SS" class="col-sm-8 col-form-label">6. Jumlah Keseluruhan Harta Yang Dimiliki Pada Akhir Tahun Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalHarta" class="form-control" id="hartaPajakSPT1770SS"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="totalHarta" class="form-control" id="hartaPajakSPT1770SS" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="utangPajakSPT1770SS" class="col-sm-8 col-form-label">7. Jumlah Keseluruhan Kewajiban/Utang Pada Akhir Tahun Pajak</label>
                                             <div class="col-sm-4">
-                                                <input type="text" name="totalUtang" class="form-control" id="utangPajakSPT1770SS"  placeholder="Masukkan Nilai">
+                                                <input type="text" name="totalUtang" class="form-control" id="utangPajakSPT1770SS" placeholder="Masukkan Nilai">
                                             </div>
                                         </div>
                                         <h5 class="p-3 bg-primary rounded">C. Pernyataan</h5>
@@ -360,70 +349,170 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalDaftarSPT" tabindex="-1" role="dialog" aria-labelledby="modalDaftarSPTLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDaftarSPTLabel">Detail Data SPT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="m_jenis_spt" class="col-sm-4 col-form-label">Jenis SPT</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_jenis_spt" value="Jenis SPT" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_tahun_pajak" class="col-sm-4 col-form-label">Tahun Pajak</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_tahun_pajak" value="Tahun Pajak" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_penghasilan" class="col-sm-4 col-form-label">Penghasilan</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_penghasilan" value="Penghasilan" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_penghasilan_tidak_kena_pajak" class="col-sm-4 col-form-label">Penghasilan Tidak Kena Pajak</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_penghasilan_tidak_kena_pajak" value="Penghasilan" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_penghasilan_tidak_kena_pajak" class="col-sm-4 col-form-label">Penghasilan Tidak Kena Pajak</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_penghasilan_tidak_kena_pajak" value="Penghasilan Tidak Kena Pajak" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_penghasilan_terpotong" class="col-sm-4 col-form-label">Penghasilan Terpotong</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_penghasilan_terpotong" value="Penghasilan Terpotong" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_total_pajak" class="col-sm-4 col-form-label">Total Pajak</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_total_pajak" value="Total Pajak" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_total_harta" class="col-sm-4 col-form-label">Total Harta</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_total_harta" value="Total Harta" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="m_total_utang" class="col-sm-4 col-form-label">Total Utang</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="m_total_utang" value="Total Utang" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         let formSpt = $('#formSpt')[0];
         let formDataSpt = new FormData(formSpt);
+        let id_user = <?= $id_user ?>;
         // console.log(...formData);
 
+        // Arsip SPT
+        let spt = <?= $spt ?>;
+        console.log(spt);
+        spt.forEach(element => {
+            $('#table-daftar-spt tbody').append(`
+                <tr>
+                    <td scope="row">${element.jenis_spt}</td>
+                    <td>${element.tahun_pajak}</td>
+                    <td data-detail="${JSON.stringify(element).replaceAll("\"", "'")}">
+                        <button class="btn btn-primary btn-sm lihat-daftar-spt" data-toggle="modal" data-target="#modalDaftarSPT" >Lihat</button> | 
+                        <button class="btn btn-danger btn-sm hapus-daftar-spt" data-toggle="modal" data-target="#modalHapusSPT" >Hapus</button>
+                    </td>
+                </tr>
+            `);
+        });
+        $('#table-daftar-spt').on('click', '.lihat-daftar-spt', function() {
+            let data = $(this).parent().data('detail');
+            data = JSON.parse(data.replaceAll("\'", '"'));
+            // console.log(data);
+            for (const key in data) {
+                $('#m_'+key).val(data[key]);
+            }
+        });
+
         // fungsi pada tab "Buat SPT"
-        $('input[name="jawabanSpt1"]').on('click', function () {
-            if($(this).val() == 'ya'){
+        $('input[name="jawabanSpt1"]').on('click', function() {
+            if ($(this).val() == 'ya') {
                 $('.view2Spt1').show();
                 $('.viewSpt2').hide();
                 $('.viewSpt3').hide();
-            }else{
+            } else {
                 $('.view2Spt1').hide();
                 $('.viewSpt2').show();
                 $('.viewSpt3').hide();
             }
         });
-        $('input[name="jawabanSpt2"]').on('click', function () {
-            if($(this).val() == 'ya'){
+        $('input[name="jawabanSpt2"]').on('click', function() {
+            if ($(this).val() == 'ya') {
                 $('.view2Spt2').show();
                 $('.viewSpt3').hide();
-            }else{
+            } else {
                 $('.view2Spt2').hide();
                 $('.viewSpt3').show();
             }
         });
-        $('input[name="jawabanSpt3"]').on('click', function () {
-            if($(this).val() == 'ya'){
+        $('input[name="jawabanSpt3"]').on('click', function() {
+            if ($(this).val() == 'ya') {
                 $('.view2Spt3').show();
                 $('.view3Spt3').hide();
-            }else{
+            } else {
                 $('.view2Spt3').hide();
                 $('.view3Spt3').show();
             }
         });
-        $('.uploadSPT').on('click', function () {
+        $('.uploadSPT').on('click', function() {
             $('#pills-upload-spt-tab').tab('show');
-            $('#pills-arsip-tab').prop('disabled',true);
-            $('#pills-buat-spt-tab').prop('disabled',true);
+            $('#pills-arsip-tab').prop('disabled', true);
+            $('#pills-buat-spt-tab').prop('disabled', true);
         });
-        $('.uploadSPT1770S').on('click', function () {
+        $('.uploadSPT1770S').on('click', function() {
             $('#pills-upload-spt1770s-tab').tab('show');
-            $('#pills-arsip-tab').prop('disabled',true);
-            $('#pills-buat-spt-tab').prop('disabled',true);
+            $('#pills-arsip-tab').prop('disabled', true);
+            $('#pills-buat-spt-tab').prop('disabled', true);
         });
-        $('.uploadSPT1770SS').on('click', function () {
+        $('.uploadSPT1770SS').on('click', function() {
             $('#pills-upload-spt1770ss-tab').tab('show');
-            $('#pills-arsip-tab').prop('disabled',true);
-            $('#pills-buat-spt-tab').prop('disabled',true);
+            $('#pills-arsip-tab').prop('disabled', true);
+            $('#pills-buat-spt-tab').prop('disabled', true);
         });
 
         // fungsi pada tab "Upload SPT"
-        
+
         // fungsi pada tab "SPT 1770 S"
-        $('#tanggunganSPT1770S').on('change', function () {
+        $('#tanggunganSPT1770S').on('change', function() {
             let minimalPenghasilan = $(this).val();
             $('#penghasilanTidakKenaPajakSPT1770S').val(minimalPenghasilan);
         });
-        $('#simpanSPT1770S').on('click', function () {
+        $('#simpanSPT1770S').on('click', function() {
             let formSPT1770S = $('#formSPT1770S')[0];
             let formDataSPT1770S = new FormData(formSPT1770S);
             formDataSPT1770S.append('jenisSPT', 'SPT1770S');
-            if($('#setuju:checked').is(":checked")){
+            formDataSPT1770S.append('id_user', id_user);
+            if ($('#setuju:checked').is(":checked")) {
                 console.log('saving', ...formDataSPT1770S);
                 $.ajax({
                     type: "POST",
@@ -431,7 +520,7 @@
                     data: formDataSPT1770S,
                     processData: false,
                     contentType: false,
-                    success: function (response) {
+                    success: function(response) {
                         console.log(response);
                     }
                 });
@@ -439,16 +528,27 @@
         });
 
         // fungsi pada tab "SPT 1770 S"
-        $('#tanggunganSPT1770SS').on('change', function () {
+        $('#tanggunganSPT1770SS').on('change', function() {
             let minimalPenghasilan = $(this).val();
             $('#penghasilanTidakKenaPajakSPT1770SS').val(minimalPenghasilan);
         });
-        $('#simpanSPT1770SS').on('click', function () {
+        $('#simpanSPT1770SS').on('click', function() {
             let formSPT1770SS = $('#formSPT1770SS')[0];
             let formDataSPT1770SS = new FormData(formSPT1770SS);
             formDataSPT1770SS.append('jenisSPT', 'SPT1770SS');
-            if($('#setujuSPT1770SS:checked').is(":checked")){
+            if ($('#setujuSPT1770SS:checked').is(":checked")) {
                 console.log('saving', ...formDataSPT1770SS);
+                formDataSPT1770SS.append('id_user', id_user);
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('siswa/spt') ?>",
+                    data: formDataSPT1770SS,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
             }
         });
     });

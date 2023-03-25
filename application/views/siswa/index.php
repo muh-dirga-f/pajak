@@ -65,24 +65,24 @@
                                                     <div class="col-md-6 mb-3">
                                                         <label for="validationDefault01">Nama</label>
                                                         <input type="text" class="form-control" id="validationDefault01"
-                                                            placeholder="Nama" value="Mark" required>
+                                                            placeholder="Nama" value="<?= $user_data[0]['nama'] ?>" required>
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="validationDefault02">NPWP</label>
                                                         <input type="text" class="form-control" id="validationDefault02"
-                                                            placeholder="NPWP" value="Otto" required readonly>
+                                                            placeholder="NPWP" value="<?= $user_data[0]['npwp'] ?>" required readonly>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="validationDefault03">Email</label>
                                                         <input type="email" class="form-control" id="validationDefault03"
-                                                            placeholder="Email" required>
+                                                            placeholder="Email" value="<?= $user_data[0]['email'] ?>" required readonly>
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="validationDefault04">Kelas</label>
                                                         <input type="text" class="form-control" id="validationDefault04"
-                                                            placeholder="Kelas" required>
+                                                            placeholder="Kelas" value="<?= $user_data[0]['kelas'] ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="float-right pt-3">
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body pt-2">
+                        <div class="card-body pt-2 d-none">
                             <div class="card">
                                 <div class="card-header text-white" style="background-color: #212C5F;">
                                     <i class="fa-solid fa-clock-rotate-left pr-2"></i> Riwayat
